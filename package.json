@@ -1,0 +1,27 @@
+{
+  "name": "stream-like",
+  "version": "0.1.0",
+  "description": "A set of tools for quickly processing data in a streaming way",
+  "main": "dist",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/somesocks/stream-like.git"
+  },
+  "keywords": [
+    "streams"
+  ],
+  "author": "James Larsen (somesocks@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/somesocks/stream-like/issues"
+  },
+  "homepage": "https://github.com/somesocks/stream-like",
+  "devDependencies": {
+    "memwatch": "^0.2.2",
+    "tape": "^4.9.1"
+  }
+}
