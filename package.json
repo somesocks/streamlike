@@ -9,7 +9,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/somesocks/stream-like.git"
+    "url": "git://github.com/somesocks/streamlike.git"
   },
   "keywords": [
     "streams"
@@ -17,9 +17,9 @@
   "author": "James Larsen (somesocks@gmail.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/somesocks/stream-like/issues"
+    "url": "https://github.com/somesocks/streamlike/issues"
   },
-  "homepage": "https://github.com/somesocks/stream-like",
+  "homepage": "https://github.com/somesocks/streamlike",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "eslint": "^5.5.0",
