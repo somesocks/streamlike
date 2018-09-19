@@ -19,7 +19,7 @@ describe(
 			let stream = Count();
 			stream = Slice(stream, 0, 99);
 			stream = ToBlocks(stream, 10);
-			stream = Each(stream, console.log);
+			// stream = Each(stream, console.log);
 			stream = Drain(stream);
 
 			stream.read();

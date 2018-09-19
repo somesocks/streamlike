@@ -12,10 +12,9 @@ function ToBlocks(source, size, padding) {
 	return Guard(self);
 }
 
-ToBlocks.prototype = Object.create(ToBlocks.prototype);
+ToBlocks.prototype = Object.create(Stream.prototype);
 
-ToBlocks.prototype.open = function open() {
-};
+ToBlocks.prototype.open = function open() { };
 
 ToBlocks.prototype.close = function close() {
 	this._size = null;

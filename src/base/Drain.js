@@ -10,10 +10,9 @@ function Drain(source) {
 	return Guard(self);
 }
 
-Drain.prototype = Object.create(Drain.prototype);
+Drain.prototype = Object.create(Stream.prototype);
 
-Drain.prototype.open = function open() {
-};
+Drain.prototype.open = function open() { };
 
 Drain.prototype.close = function close() {
 	this._source.close();

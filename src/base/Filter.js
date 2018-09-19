@@ -12,10 +12,9 @@ function Filter(source, filter) {
 	return Guard(self);
 }
 
-Filter.prototype = Object.create(Filter.prototype);
+Filter.prototype = Object.create(Stream.prototype);
 
-Filter.prototype.open = function open() {
-};
+Filter.prototype.open = function open() { };
 
 Filter.prototype.close = function close() {
 	this._filter = null;

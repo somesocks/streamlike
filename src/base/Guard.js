@@ -15,7 +15,7 @@ Guard.NO_OPEN_CLOSED = new Error('cannot open a closed stream');
 
 Guard.NO_CLOSE_UNOPEN = new Error('cannot close an unopened stream');
 
-Guard.prototype = Object.create(Guard.prototype);
+Guard.prototype = Object.create(Stream.prototype);
 
 Guard.prototype.open = function open() {
 	if (this._closed) { throw Guard.NO_OPEN_CLOSED; }
@@ -26,7 +26,7 @@ Guard.prototype.open = function open() {
 };
 
 Guard.prototype.close = function close() {
-	if (!this._open) { throw Guard.NO_CLOSE_UNOPEN; }
+	if (!this._open) { return; }
 	if (this._closed) { return; }
 
 	this._closed = true;
@@ -38,9 +38,15 @@ Guard.prototype.read = function read(recycle) {
 	if (this._closed) { return Stream.END; }
 	if (!this._open) { this.open(); }
 
-	const res = this._source.read(recycle);
-	if (res === Stream.END) { this.close(); }
-	return res;
+	try {
+		const res = this._source.read(recycle);
+		if (res === Stream.END) { this.close(); }
+		return res;
+	} catch (err) {
+		this.close();
+		throw err;
+	}
+
 }
 
 module.exports = Guard;

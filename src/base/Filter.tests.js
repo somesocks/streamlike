@@ -25,24 +25,25 @@ describe(
 		});
 
 		it('performance test 1', () => {
-			let stream = Count();
-			stream = Slice(stream, 0, 999999);
-			stream = Filter(stream, (val, i) => (val % 2 === 0));
-			stream = Filter(stream, (val, i) => (val % 3 === 0));
-			stream = Filter(stream, (val, i) => (val % 5 === 0));
-			stream = Filter(stream, (val, i) => (val % 7 === 0));
-			stream = ToArray(stream);
+			let stream = Count()
+				.pipe(Slice, 0, 999999)
+				.pipe(Filter, (val, i) => (val % 2 === 0))
+				.pipe(Filter, (val, i) => (val % 3 === 0))
+				.pipe(Filter, (val, i) => (val % 5 === 0))
+				.pipe(Filter, (val, i) => (val % 7 === 0))
+				.pipe(ToArray);
 
 			let arr = stream.read();
 		});
 
 		it('performance test 2', () => {
 			let arr = Array(999999).fill(0);
-			arr = arr.map((v, i) => i);
-			arr = arr.filter((val) => val % 2 === 0);
-			arr = arr.filter((val) => val % 3 === 0);
-			arr = arr.filter((val) => val % 5 === 0);
-			arr = arr.filter((val) => val % 7 === 0);
+			arr = arr
+				.map((v, i) => i)
+				.filter((val) => val % 2 === 0)
+				.filter((val) => val % 3 === 0)
+				.filter((val) => val % 5 === 0)
+				.filter((val) => val % 7 === 0);
 		});
 
 

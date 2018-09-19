@@ -1,5 +1,5 @@
 {
-  "name": "stream-like",
+  "name": "streamlike",
   "version": "0.1.0",
   "description": "A set of tools for quickly processing data in a streaming way",
   "main": "dist",
@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/somesocks/stream-like",
   "devDependencies": {
-    "memwatch": "^0.2.2",
-    "tape": "^4.9.1"
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.5.0",
+    "eslint-config-esnext": "^3.0.0",
+    "eslint-import-resolver-node": "^0.3.2",
+    "eslint-plugin-import": "^2.14.0"
   }
 }

@@ -11,10 +11,9 @@ function Expand(expander) {
 	return Guard(self);
 }
 
-Expand.prototype = Object.create(Expand.prototype);
+Expand.prototype = Object.create(Stream.prototype);
 
-Expand.prototype.open = function open() {
-};
+Expand.prototype.open = function open() { };
 
 Expand.prototype.close = function close() {
 	this._expander = null;

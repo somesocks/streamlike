@@ -13,35 +13,42 @@ describe(
 	'Streams.Map',
 	() => {
 		it('test case 1', () => {
-			let stream = Count();
+			const stream = Count()
+				// .pipe(Each, (val, i) => console.log('Each 1', val))
+				.pipe(Map, (val, i) => val + 1)
+				// .pipe(Each, (val, i) => console.log('Each 2', val))
+				.pipe(Slice, 0, 3)
+				.pipe(Drain)
+				.read();
+
 			// stream = Each(stream, (val, i) => console.log('Each 1', val));
-			stream = Map(stream, (val, i) => val + 1);
+			// stream = Map(stream, (val, i) => val + 1);
 			// stream = Each(stream, (val, i) => console.log('Each 2', val));
 
-			stream.read();
-			stream.read();
-			stream.read();
+			// stream.read();
+			// stream.read();
+			// stream.read();
 
 		});
 
 		it('performance test 1', () => {
-			let stream = Count();
-			stream = Slice(stream, 0, 999999);
-			stream = Map(stream, (val, i) => val + 1);
-			stream = Map(stream, (val, i) => val + 1);
-			stream = Map(stream, (val, i) => val + 1);
-			stream = Map(stream, (val, i) => val + 1);
-			stream = ToArray(stream);
-
-			let arr = stream.read();
+			const arr = Count()
+				.pipe(Slice, 0, 999999)
+				.pipe(Map, (val) => val + 1)
+				.pipe(Map, (val) => val + 1)
+				.pipe(Map, (val) => val + 1)
+				.pipe(Map, (val) => val + 1)
+				.pipe(ToArray)
+				.read();
 		});
 
 		it('performance test 2', () => {
 			let arr = Array(999999).fill(0);
-			arr = arr.map((val) => val + 1);
-			arr = arr.map((val) => val + 1);
-			arr = arr.map((val) => val + 1);
-			arr = arr.map((val) => val + 1);
+			arr = arr
+				.map((val) => val + 1)
+				.map((val) => val + 1)
+				.map((val) => val + 1)
+				.map((val) => val + 1);
 		});
 
 	}

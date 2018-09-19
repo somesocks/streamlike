@@ -13,10 +13,9 @@ function Slice(source, start, end) {
 	return Guard(self);
 }
 
-Slice.prototype = Object.create(Slice.prototype);
+Slice.prototype = Object.create(Stream.prototype);
 
-Slice.prototype.open = function open() {
-};
+Slice.prototype.open = function open() { };
 
 Slice.prototype.close = function close() {
 	this._start = null;
@@ -43,9 +42,9 @@ Slice.prototype.read = function read(recycle) {
 		val = this._source.read(val);
 		this._index++;
 		return val;
-	} else {
-		return Stream.END;
 	}
+
+	return Stream.END;
 }
 
 module.exports = Slice;

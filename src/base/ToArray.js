@@ -10,10 +10,9 @@ function ToArray(source) {
 	return Guard(self);
 }
 
-ToArray.prototype = Object.create(ToArray.prototype);
+ToArray.prototype = Object.create(Stream.prototype);
 
-ToArray.prototype.open = function open() {
-};
+ToArray.prototype.open = function open() { };
 
 ToArray.prototype.close = function close() {
 	if (this._source) {

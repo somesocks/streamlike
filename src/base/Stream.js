@@ -10,6 +10,11 @@ Stream.prototype.close = function close() { };
 
 Stream.prototype.read = function read(recycle) { };
 
-Stream.END = 'b4b9ddea92004164a357425b6a7294b0';
+Stream.prototype.pipe = function pipe(streamConstructor, ...args) {
+	return streamConstructor(this, ...args);
+};
+
+// Stream.END should be a locally-unique object
+Stream.END = {};
 
 module.exports = Stream;

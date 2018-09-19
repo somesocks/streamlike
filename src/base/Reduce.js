@@ -13,11 +13,9 @@ function Reduce(source, reducer, state) {
 	return Guard(self);
 }
 
-Reduce.prototype = Object.create(Reduce.prototype);
+Reduce.prototype = Object.create(Stream.prototype);
 
-Reduce.prototype.open = function open() {
-	this._source.open();
-};
+Reduce.prototype.open = function open() { };
 
 Reduce.prototype.close = function close() {
 	this._reducer = null;

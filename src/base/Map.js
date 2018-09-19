@@ -12,10 +12,9 @@ function Map(source, mapper) {
 	return Guard(self);
 }
 
-Map.prototype = Object.create(Map.prototype);
+Map.prototype = Object.create(Stream.prototype);
 
-Map.prototype.open = function open() {
-};
+Map.prototype.open = function open() { };
 
 Map.prototype.close = function close() {
 	this._map = null;

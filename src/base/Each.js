@@ -12,10 +12,9 @@ function Each(source, each) {
 	return Guard(self);
 }
 
-Each.prototype = Object.create(Each.prototype);
+Each.prototype = Object.create(Stream.prototype);
 
-Each.prototype.open = function open() {
-};
+Each.prototype.open = function open() { };
 
 Each.prototype.close = function close() {
 	this._each = null;

@@ -10,13 +10,11 @@ function Count(start) {
 	return Guard(self);
 }
 
-Count.prototype = Object.create(Count.prototype);
+Count.prototype = Object.create(Stream.prototype);
 
-Count.prototype.open = function open() {
-};
+Count.prototype.open = function open() { };
 
-Count.prototype.close = function close() {
-};
+Count.prototype.close = function close() { };
 
 Count.prototype.read = function read(recycle) {
 	const val = this._index;

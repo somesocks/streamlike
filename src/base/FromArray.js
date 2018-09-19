@@ -11,10 +11,9 @@ function FromArray(array) {
 	return Guard(self);
 }
 
-FromArray.prototype = Object.create(FromArray.prototype);
+FromArray.prototype = Object.create(Stream.prototype);
 
-FromArray.prototype.open = function open() {
-};
+FromArray.prototype.open = function open() { };
 
 FromArray.prototype.close = function close() {
 	this._array = null;
@@ -26,9 +25,9 @@ FromArray.prototype.read = function read(recycle) {
 		const res = this._array[this._index];
 		this._index++;
 		return res;
-	} else {
-		return Stream.END;
 	}
+
+	return Stream.END;
 }
 
 module.exports = FromArray;
