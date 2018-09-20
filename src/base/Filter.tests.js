@@ -24,7 +24,7 @@ describe(
 
 		it('performance test', () => {
 			Count()
-				.pipe(Slice, 0, 999999)
+				.pipe(Slice, 0, 1000000)
 				.pipe(Filter, (val, i) => (val % 2 === 0))
 				.pipe(Filter, (val, i) => (val % 3 === 0))
 				.pipe(Filter, (val, i) => (val % 5 === 0))
@@ -35,7 +35,7 @@ describe(
 		});
 
 		it('performance test control group', () => {
-			let arr = Array(999999).fill(0);
+			let arr = Array(1000000).fill(0);
 			arr = arr
 				.map((v, i) => i)
 				.filter((val) => val % 2 === 0)

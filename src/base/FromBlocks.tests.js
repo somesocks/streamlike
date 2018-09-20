@@ -40,7 +40,7 @@ describe(
 
 		it('performance 1', () => {
 			Count()
-				.pipe(Slice, 0, 999999)
+				.pipe(Slice, 0, 1000000)
 				.pipe(ToBlocks, 10)
 				.pipe(FromBlocks)
 				.pipe(Drain)

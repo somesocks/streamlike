@@ -33,7 +33,7 @@ describe(
 
 		it('performance test', () => {
 			const arr = Count()
-				.pipe(Slice, 0, 999999)
+				.pipe(Slice, 0, 1000000)
 				.pipe(Map, (val) => val + 1)
 				.pipe(Map, (val) => val + 1)
 				.pipe(Map, (val) => val + 1)
@@ -43,7 +43,7 @@ describe(
 		});
 
 		it('performance test control group', () => {
-			let arr = Array(999999).fill(0);
+			let arr = Array(1000000).fill(0);
 			arr = arr
 				.map((val) => val + 1)
 				.map((val) => val + 1)

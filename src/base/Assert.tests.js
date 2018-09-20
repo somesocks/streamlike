@@ -37,7 +37,7 @@ describe(
 
 		it('performance 1', () => {
 			Count()
-				.pipe(Slice, 1, 999999)
+				.pipe(Slice, 1, 1000000)
 				.pipe(Assert, isPositive)
 				.pipe(Drain)
 				.read();

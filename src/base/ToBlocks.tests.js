@@ -27,7 +27,7 @@ describe(
 
 		it('performance 1', () => {
 			let stream = Count();
-			stream = Slice(stream, 0, 999999);
+			stream = Slice(stream, 0, 1000000);
 			stream = ToBlocks(stream, 10);
 			stream = Drain(stream);
 

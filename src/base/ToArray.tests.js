@@ -26,7 +26,7 @@ describe(
 
 		it('performance 1', () => {
 			Count()
-				.pipe(Slice, 0, 999999)
+				.pipe(Slice, 0, 1000000)
 				.pipe(ToArray, 10)
 				.pipe(Drain)
 				.read();

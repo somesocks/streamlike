@@ -31,7 +31,7 @@ describe(
 		it('performance 1', () => {
 			Count()
 				// .pipe(Assert, (val) => Number.isInteger(val))
-				.pipe(Slice, 0, 999999)
+				.pipe(Slice, 0, 1000000)
 				// .pipe(Assert, (val) => Number.isInteger(val))
 				.pipe(Drain)
 				.read();
