@@ -7,6 +7,7 @@ const {
 	Count,
 	Slice,
 
+	From,
 	FromArray,
 	ToArray,
 
@@ -21,23 +22,29 @@ describe(
 	() => {
 
 		it('test 1', () => {
-			let stream = Count()
+			const result = Count()
 				.pipe(Slice, 0, 100)
 				.pipe(ToBlocks, 10)
 				.pipe(FromBlocks)
-				.pipe(Drain);
-
-			stream.read();
+				.pipe(Drain)
+				.read();
 		});
 
+		it('test 2', () => {
+			const result = From([1, 2, 3], [4, 5, 6])
+				.pipe(FromBlocks)
+				.pipe(ToArray)
+				.read();
+		});
+
+
 		it('performance 1', () => {
-			let stream = Count()
+			Count()
 				.pipe(Slice, 0, 999999)
 				.pipe(ToBlocks, 10)
 				.pipe(FromBlocks)
-				.pipe(Drain);
-
-			stream.read();
+				.pipe(Drain)
+				.read();
 		});
 
 	}

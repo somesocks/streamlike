@@ -8,5 +8,6 @@ module.exports = {
 		'no-console': [ 'warn' ],
 		'no-empty-function': [ 'warn' ],
 		'no-unused-vars': [ 'warn' ],
+		'require-jsdoc': [ 'warn' ],
 	}
 };

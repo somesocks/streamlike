@@ -6,6 +6,30 @@ const DEFAULT_ASSERT = function (val, index) { return true; };
 
 const DEFAULT_ERROR = function (val, index) { return new Error(`Assert: val ${val} at index ${index} failed assertion`); };
 
+/**
+*
+* ```javascript
+* // works
+* const integers = From(1, 2, 3, 4)
+*    .pipe(Slice, 0, 10)
+*    .pipe(Assert, (val, i) => Number.isInteger(val))
+*    .pipe(ToArray)
+*    .read();
+*
+* // throws error
+* const integers = From(1, 2, 3, "4")
+*    .pipe(Assert, (val, i) => Number.isInteger(val))
+*    .pipe(ToArray)
+*    .read();
+* ```
+* Assert is a stream constructor that builds a stream to run an assertion against every value in the stream
+* @name Assert
+* @param {Stream} source - a source stream
+* @param {function} assert - an assertion function
+* @param {function} error - an error builder function
+* @returns {Stream}
+* @memberof streamlike
+*/
 function Assert(source, assert, error) {
 	const self = this instanceof Assert ? this : Object.create(Assert.prototype);
 

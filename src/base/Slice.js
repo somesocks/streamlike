@@ -2,6 +2,23 @@
 const Stream = require('./Stream');
 const Guard = require('./Guard');
 
+/**
+*
+* ```javascript
+*  // res is [1, 2, 3]:
+*  let res = Count()
+*    .pipe(Slice, 0, 4)
+*    .pipe(ToArray)
+*    .read();
+* ```
+* Slice 'slices' out a piece of a Stream to use
+* @name Slice
+* @param {Stream} source - a source stream
+* @param {function} reduce - a reduce function
+* @param {*} state - the initial value of the state
+* @returns {Stream}
+* @memberof streamlike
+*/
 function Slice(source, start, end) {
 	const self = this instanceof Slice ? this : Object.create(Slice.prototype);
 

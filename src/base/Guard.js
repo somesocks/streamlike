@@ -1,6 +1,15 @@
 
 const Stream = require('./Stream');
 
+/**
+*
+* Guard is a special-purpose stream wrapper designed to 'protect' a stream,
+* and make sure it gets opened and closed properly, even in the event of an error
+* @name Guard
+* @param {Stream} source - a source stream
+* @returns {Stream}
+* @memberof streamlike
+*/
 function Guard(source) {
 	const self = this instanceof Guard ? this : Object.create(Guard.prototype);
 

@@ -2,12 +2,9 @@
 
 const {
 	Assert,
-	Expand,
-	Each,
-	Filter,
 	Count,
 	Slice,
-	FromArray,
+	From,
 	ToArray,
 	ToBlocks,
 	Drain,
@@ -20,7 +17,7 @@ describe(
 	() => {
 
 		it('test 1', () => {
-			FromArray([1, 2, 3])
+			From(1, 2, 3)
 				.pipe(Assert, isPositive)
 				.pipe(Drain)
 				.read();
@@ -28,7 +25,7 @@ describe(
 
 		it('test 2', () => {
 			try {
-				FromArray([1, 2, 3, -1])
+				From(1, 2, 3, -1)
 					.pipe(Assert, isPositive)
 					.pipe(Drain)
 					.read();

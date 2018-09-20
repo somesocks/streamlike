@@ -1,8 +1,9 @@
 /* eslint-env mocha */
 
 const {
-	Expand,
+	Assert,
 	Each,
+	Drain,
 	Filter,
 	Count,
 	Slice,
@@ -13,30 +14,27 @@ describe(
 	'Streams.Filter',
 	() => {
 		it('test case 1', () => {
-			let stream = Expand((i) => i);
-			// stream = Each(stream, (val, i) => console.log('Each 1', val));
-			stream = Filter(stream, (val, i) => (val % 10 === 0));
-			// stream = Each(stream, (val, i) => console.log('Each 2', val));
-
-			stream.read();
-			stream.read();
-			stream.read();
-
+			Count()
+				.pipe(Slice, 0, 50)
+				.pipe(Filter, (val) => (val % 10 === 0))
+				// .pipe(Each, (val) => console.log(val))
+				.pipe(Drain)
+				.read();
 		});
 
-		it('performance test 1', () => {
-			let stream = Count()
+		it('performance test', () => {
+			Count()
 				.pipe(Slice, 0, 999999)
 				.pipe(Filter, (val, i) => (val % 2 === 0))
 				.pipe(Filter, (val, i) => (val % 3 === 0))
 				.pipe(Filter, (val, i) => (val % 5 === 0))
 				.pipe(Filter, (val, i) => (val % 7 === 0))
-				.pipe(ToArray);
-
-			let arr = stream.read();
+				.pipe(ToArray)
+				.pipe(Drain)
+				.read();
 		});
 
-		it('performance test 2', () => {
+		it('performance test control group', () => {
 			let arr = Array(999999).fill(0);
 			arr = arr
 				.map((v, i) => i)

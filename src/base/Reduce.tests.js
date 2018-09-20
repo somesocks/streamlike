@@ -1,25 +1,22 @@
 /* eslint-env mocha */
 
-const Stream = require('./Stream');
-const Expand = require('./Expand');
-const Reduce = require('./Reduce');
-const Each = require('./Each');
+const {
+	Stream,
+	Count,
+	Slice,
+	Reduce,
+	Drain,
+} = require('./');
 
 describe(
 	'Streams.Reduce',
 	() => {
 		it('test case 1', () => {
-			const expander = (i) => (i < 4 ? i : Stream.END);
-			const reducer = (state, val) => state + val;
-
-			let stream = Expand(expander);
-			// stream = Each(stream, console.log);
-			stream = Reduce(stream, reducer, 0);
-			// stream = Each(stream, console.log);
-
-			stream.read();
-
-			// console.log('', stream.read());
+			Count()
+				.pipe(Slice, 0, 10)
+				.pipe(Reduce, (state, val) => state + val, 0)
+				.pipe(Drain)
+				.read();
 		});
 	}
 );

@@ -20,6 +20,8 @@ const Drain = require('./Drain');
 
 const Count = require('./Count');
 
+const From = require('./From');
+
 const FromArray = require('./FromArray');
 const ToArray = require('./ToArray');
 
@@ -42,10 +44,12 @@ module.exports = {
 
 	Slice,
 	Splice,
-	
+
 	Drain,
 
 	Count,
+
+	From,
 
 	FromArray,
 	ToArray,

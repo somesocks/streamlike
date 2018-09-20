@@ -1,3 +1,4 @@
+/** @namespace streamlike */
 
 const base = require('./base');
 

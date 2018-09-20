@@ -2,6 +2,23 @@
 const Stream = require('./Stream');
 const Guard = require('./Guard');
 
+/**
+*
+* ```javascript
+*  // res is [ [1, 2, 3], [4, 5, 6] ]:
+*  let res = From(1, 2, 3, 4, 5, 6)
+*    .pipe(ToBlocks, 3)
+*    .pipe(ToArray)
+*    .read();
+* ```
+* ToBlocks converts a Stream into a stream of 'blocks' (fixed-size arrays of the elements)
+* @name ToBlocks
+* @param {Stream} source - the source stream
+* @param {number} size - the size of blocks to emit
+* @param {*} padding - the padding for partial blocks
+* @returns {Stream}
+* @memberof streamlike
+*/
 function ToBlocks(source, size, padding) {
 	const self = this instanceof ToBlocks ? this : Object.create(ToBlocks.prototype);
 

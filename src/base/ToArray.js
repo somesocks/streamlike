@@ -2,6 +2,20 @@
 const Stream = require('./Stream');
 const Guard = require('./Guard');
 
+/**
+*
+* ```javascript
+*  // res is [1, 2, 3]:
+*  let res = From(1, 2, 3)
+*    .pipe(ToArray)
+*    .read();
+* ```
+* ToArray converts a Stream into an Array
+* @name ToArray
+* @param {Stream} source - the source stream
+* @returns {Stream}
+* @memberof streamlike
+*/
 function ToArray(source) {
 	const self = this instanceof ToArray ? this : Object.create(ToArray.prototype);
 
@@ -35,8 +49,11 @@ ToArray.prototype.read = function read(recycle) {
 
 	while (loop) {
 		val = this._source.read(val);
-		loop = (val !== Stream.END);
-		res.push(val)
+		if (val !== Stream.END) {
+			res.push(val)
+		} else {
+			loop = false;
+		}
 	}
 
 	res = res.length === 0 ? Stream.END : res;

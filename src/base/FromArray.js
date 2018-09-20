@@ -2,6 +2,20 @@
 const Stream = require('./Stream');
 const Guard = require('./Guard');
 
+/**
+*
+* ```javascript
+*  // res is [1, 2, 3]:
+*  let res = FromArray([ 1, 2, 3 ])
+*    .pipe(ToArray)
+*    .read();
+* ```
+* FromArray builds a stream from its arguments.
+* @name FromArray
+* @param {array} values - values to return in the stream, in order
+* @returns {Stream}
+* @memberof streamlike
+*/
 function FromArray(array) {
 	const self = this instanceof FromArray ? this : Object.create(FromArray.prototype);
 

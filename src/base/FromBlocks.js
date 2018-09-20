@@ -6,6 +6,21 @@ const Assert = require('./Assert');
 
 const isBlock = function (val) { return Array.isArray(val); };
 
+/**
+*
+* ```javascript
+*  // res is [1, 2, 3, 4, 5, 6]:
+*  let res = From([ 1, 2, 3 ], [4, 5, 6])
+*    .pipe(FromBlocks)
+*    .pipe(ToArray)
+*    .read();
+* ```
+* FromBlocks 'flattens' a stream of arrays into a stream of elements.
+* @name FromBlocks
+* @param {Stream} source - a stream of arrays
+* @returns {Stream}
+* @memberof streamlike
+*/
 function FromBlocks(source) {
 	const self = this instanceof FromBlocks ? this : Object.create(FromBlocks.prototype);
 

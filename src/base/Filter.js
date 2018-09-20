@@ -2,6 +2,23 @@
 const Stream = require('./Stream');
 const Guard = require('./Guard');
 
+/**
+*
+* ```javascript
+*  // res is [0, 10, 20, 30, 40]:
+*  let res = Count()
+*    .pipe(Slice, 0, 50)
+*    .pipe(Filter, (val, i) => (val % 10 === 0))
+*    .pipe(ToArray)
+*    .read();
+* ```
+* Filter removes some items from the stream.
+* @name Filter
+* @param {Stream} source - a source stream
+* @param {function} filter - a filter function
+* @returns {Stream}
+* @memberof streamlike
+*/
 function Filter(source, filter) {
 	const self = this instanceof Filter ? this : Object.create(Filter.prototype);
 

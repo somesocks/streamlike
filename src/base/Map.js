@@ -2,6 +2,23 @@
 const Stream = require('./Stream');
 const Guard = require('./Guard');
 
+/**
+*
+* ```javascript
+*  // res is [1, 2, 3]:
+*  let res = Count()
+*    .pipe(Slice, 0, 4)
+*    .pipe(Map, (val, i) => val + 1)
+*    .pipe(ToArray)
+*    .read();
+* ```
+* Map transforms each element in a stream
+* @name Map
+* @param {Stream} source - a source stream
+* @param {function} map - a map function
+* @returns {Stream}
+* @memberof streamlike
+*/
 function Map(source, mapper) {
 	const self = this instanceof Map ? this : Object.create(Map.prototype);
 

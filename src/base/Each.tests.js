@@ -3,18 +3,17 @@
 const {
 	Count,
 	Slice,
+	Each,
 	Drain,
-	Assert,
-	Stream,
 } = require('./');
 
 describe(
-	'Streams.Drain',
+	'Streams.Each',
 	() => {
 		it('test case 1', () => {
-			const res = Count()
-				.pipe(Slice, 0, 4)
-				.pipe(Assert, (val) => Number.isInteger(val))
+			Count()
+				.pipe(Slice, 1, 4)
+				// .pipe(Each, (val, i) => console.log(`element ${i} is ${val}`))
 				.pipe(Drain)
 				.read();
 		});
