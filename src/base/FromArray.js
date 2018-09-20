@@ -10,7 +10,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* FromArray builds a stream from its arguments.
+* `FromArray` builds a stream from its arguments.
 * @name FromArray
 * @param {array} values - values to return in the stream, in order
 * @returns {Stream}

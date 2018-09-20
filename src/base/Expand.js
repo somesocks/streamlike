@@ -15,8 +15,8 @@ const Guard = require('./Guard');
 *    .pipe(Drain)
 *    .read();
 * ```
-* Expand is useful when you need custom code to expand something into a stream.
-* Keep in mind you'll need to return Stream.END at some point
+* `Expand` is useful when you need custom code to expand something into a stream.
+* Keep in mind you'll need to return `Stream.END` at some point.
 * @name Expand
 * @param {function} expander - a function to get called for each value
 * @returns {Stream}

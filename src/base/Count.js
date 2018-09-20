@@ -11,8 +11,8 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* Count is a stream constructor that builds a stream that counts integers upward
-* Count never terminates, so make sure to add a terminating stream like a Slice somewhere after it.
+* `Count` is a stream constructor that builds a stream that counts integers upward
+* `Count` never terminates, so make sure to add a terminating stream like a `Slice` somewhere after it.
 * @name Count
 * @param {number} start - the number to start counting from
 * @returns {Stream}

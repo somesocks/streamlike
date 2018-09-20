@@ -53,7 +53,7 @@ A set of tools for quickly processing data in a streaming way
 <a name="new_streamlike.Stream_new"></a>
 
 #### new Stream()
-Stream is the base stream class.
+`Stream` is the base stream class.
 it should always be subclassed.
 stream constructors should never require new.
 
@@ -140,7 +140,7 @@ const integers = From(1, 2, 3, "4")
    .pipe(ToArray)
    .read();
 ```
-Assert is a stream constructor that builds a stream to run an assertion against every value in the stream
+`Assert` is a stream constructor that builds a stream to run an assertion against every value in the stream
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -162,8 +162,8 @@ const integers = Count()
    .pipe(ToArray)
    .read();
 ```
-Count is a stream constructor that builds a stream that counts integers upward
-Count never terminates, so make sure to add a terminating stream like a Slice somewhere after it.
+`Count` is a stream constructor that builds a stream that counts integers upward
+`Count` never terminates, so make sure to add a terminating stream like a `Slice` somewhere after it.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -183,7 +183,7 @@ Count never terminates, so make sure to add a terminating stream like a Slice so
    .pipe(Drain)
    .read();
 ```
-Drain is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
+`Drain` is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
 Useful for streams with side-effects.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
@@ -208,7 +208,7 @@ Useful for streams with side-effects.
    .pipe(Drain)
    .read();
 ```
-Each is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
+`Each` is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
 Useful for streams with side-effects.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
@@ -234,8 +234,8 @@ Useful for streams with side-effects.
    .pipe(Drain)
    .read();
 ```
-Expand is useful when you need custom code to expand something into a stream.
-Keep in mind you'll need to return Stream.END at some point
+`Expand` is useful when you need custom code to expand something into a stream.
+Keep in mind you'll need to return `Stream.END` at some point.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -256,7 +256,7 @@ Keep in mind you'll need to return Stream.END at some point
    .pipe(ToArray)
    .read();
 ```
-Filter removes some items from the stream.
+`Filter` removes some items from a stream.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -276,7 +276,7 @@ Filter removes some items from the stream.
    .pipe(ToArray)
    .read();
 ```
-FromArray builds a stream from its arguments.
+`FromArray` builds a stream from its arguments.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -296,7 +296,7 @@ FromArray builds a stream from its arguments.
    .pipe(ToArray)
    .read();
 ```
-FromBlocks 'flattens' a stream of arrays into a stream of elements.
+`FromBlocks` 'flattens' a stream of arrays into a stream of elements.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -315,7 +315,7 @@ FromBlocks 'flattens' a stream of arrays into a stream of elements.
    .pipe(ToArray)
    .read();
 ```
-From builds a stream from its arguments.
+`From` builds a stream from its arguments.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -328,7 +328,7 @@ From builds a stream from its arguments.
 <a name="streamlike.Guard"></a>
 
 ### streamlike.Guard ⇒ <code>Stream</code>
-Guard is a special-purpose stream wrapper designed to 'protect' a stream,
+`Guard` is a special-purpose stream wrapper designed to 'protect' a stream,
 and make sure it gets opened and closed properly, even in the event of an error
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
@@ -350,7 +350,7 @@ and make sure it gets opened and closed properly, even in the event of an error
    .pipe(ToArray)
    .read();
 ```
-Map transforms each element in a stream
+`Map` transforms each element in a stream.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -371,7 +371,7 @@ Map transforms each element in a stream
    .pipe(Reduce, (state, val, i) => state + val)
    .read();
 ```
-Reduce 'reduces' a stream of elements to a single result
+`Reduce` 'reduces' a stream of elements to a single result.
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -393,7 +393,7 @@ Reduce 'reduces' a stream of elements to a single result
    .pipe(ToArray)
    .read();
 ```
-Slice 'slices' out a piece of a Stream to use
+`Slice` 'slices' out a piece of a stream to use
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -414,7 +414,7 @@ Slice 'slices' out a piece of a Stream to use
    .pipe(ToArray)
    .read();
 ```
-Splice 'splices' several streams together, concatenating them into a single stream
+`Splice` 'splices' several streams together, concatenating them into a single stream
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -433,7 +433,7 @@ Splice 'splices' several streams together, concatenating them into a single stre
    .pipe(ToArray)
    .read();
 ```
-ToArray converts a Stream into an Array
+`ToArray` converts a stream into an array
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**
@@ -453,7 +453,7 @@ ToArray converts a Stream into an Array
    .pipe(ToArray)
    .read();
 ```
-ToBlocks converts a Stream into a stream of 'blocks' (fixed-size arrays of the elements)
+`ToBlocks` converts a stream into a stream of 'blocks' (fixed-size arrays of the elements)
 
 **Kind**: static property of [<code>streamlike</code>](#streamlike)  
 **Params**

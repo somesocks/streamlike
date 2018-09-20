@@ -12,7 +12,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* Filter removes some items from the stream.
+* `Filter` removes some items from a stream.
 * @name Filter
 * @param {Stream} source - a source stream
 * @param {function} filter - a filter function

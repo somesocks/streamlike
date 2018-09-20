@@ -11,7 +11,7 @@ const Guard = require('./Guard');
 *    .pipe(Drain)
 *    .read();
 * ```
-* Drain is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
+* `Drain` is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
 * Useful for streams with side-effects.
 * @name Drain
 * @param {Stream} source - the source stream to drain

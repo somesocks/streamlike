@@ -11,7 +11,7 @@ const Guard = require('./Guard');
 *    .pipe(Reduce, (state, val, i) => state + val)
 *    .read();
 * ```
-* Reduce 'reduces' a stream of elements to a single result
+* `Reduce` 'reduces' a stream of elements to a single result.
 * @name Reduce
 * @param {Stream} source - a source stream
 * @param {function} reduce - a reduce function

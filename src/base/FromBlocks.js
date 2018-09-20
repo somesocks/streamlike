@@ -15,7 +15,7 @@ const isBlock = function (val) { return Array.isArray(val); };
 *    .pipe(ToArray)
 *    .read();
 * ```
-* FromBlocks 'flattens' a stream of arrays into a stream of elements.
+* `FromBlocks` 'flattens' a stream of arrays into a stream of elements.
 * @name FromBlocks
 * @param {Stream} source - a stream of arrays
 * @returns {Stream}

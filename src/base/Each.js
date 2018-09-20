@@ -15,7 +15,7 @@ const Guard = require('./Guard');
 *    .pipe(Drain)
 *    .read();
 * ```
-* Each is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
+* `Each` is a stream constructor wraps a source stream, and when read is called it reads the entire stream and throws it away.
 * Useful for streams with side-effects.
 * @name Each
 * @param {Stream} source - the source stream to drain

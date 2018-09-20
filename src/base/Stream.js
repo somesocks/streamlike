@@ -1,6 +1,6 @@
 
 /**
-* Stream is the base stream class.
+* `Stream` is the base stream class.
 * it should always be subclassed.
 * stream constructors should never require new.
 * @name Stream

@@ -12,7 +12,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* Map transforms each element in a stream
+* `Map` transforms each element in a stream.
 * @name Map
 * @param {Stream} source - a source stream
 * @param {function} map - a map function

@@ -10,7 +10,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* Splice 'splices' several streams together, concatenating them into a single stream
+* `Splice` 'splices' several streams together, concatenating them into a single stream
 * @name Splice
 * @param {...Streams} sources - the source streams
 * @returns {Stream}

@@ -22,7 +22,7 @@ const DEFAULT_ERROR = function (val, index) { return new Error(`Assert: val ${va
 *    .pipe(ToArray)
 *    .read();
 * ```
-* Assert is a stream constructor that builds a stream to run an assertion against every value in the stream
+* `Assert` is a stream constructor that builds a stream to run an assertion against every value in the stream
 * @name Assert
 * @param {Stream} source - a source stream
 * @param {function} assert - an assertion function

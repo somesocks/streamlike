@@ -11,7 +11,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* ToBlocks converts a Stream into a stream of 'blocks' (fixed-size arrays of the elements)
+* `ToBlocks` converts a stream into a stream of 'blocks' (fixed-size arrays of the elements)
 * @name ToBlocks
 * @param {Stream} source - the source stream
 * @param {number} size - the size of blocks to emit

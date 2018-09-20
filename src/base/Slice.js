@@ -11,7 +11,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* Slice 'slices' out a piece of a Stream to use
+* `Slice` 'slices' out a piece of a stream to use
 * @name Slice
 * @param {Stream} source - a source stream
 * @param {function} reduce - a reduce function

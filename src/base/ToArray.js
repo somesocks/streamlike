@@ -10,7 +10,7 @@ const Guard = require('./Guard');
 *    .pipe(ToArray)
 *    .read();
 * ```
-* ToArray converts a Stream into an Array
+* `ToArray` converts a stream into an array
 * @name ToArray
 * @param {Stream} source - the source stream
 * @returns {Stream}
