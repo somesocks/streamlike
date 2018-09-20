@@ -45,6 +45,19 @@ Stream.prototype.read = function read(recycle) { };
 
 
 /**
+* ```javascript
+* // this
+* let stream = From(1, 2, 3, 4);
+* stream = Slice(stream, 0, 10);
+* stream = Assert(stream, (val, i) => Number.isInteger(val));
+* stream = ToArray(stream);
+*
+* // is equivalent to this
+* const stream = From(1, 2, 3, "4")
+*    .pipe(Slice, 0, 10)
+*    .pipe(Assert, (val, i) => Number.isInteger(val))
+*    .pipe(ToArray);
+* ```
 * pipe is a utility method to wrap one stream in another.
 * @function pipe
 * @param streamContsructor - the constructor function for another Stream. pipe assumes the constructor takes a source stream as its first argument

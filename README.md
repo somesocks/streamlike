@@ -103,6 +103,19 @@ if there are no more values to read, or the stream is closed, read should return
 <a name="streamlike.Stream+pipe"></a>
 
 #### stream.pipe(streamContsructor, ...args)
+```javascript
+// this
+let stream = From(1, 2, 3, 4);
+stream = Slice(stream, 0, 10);
+stream = Assert(stream, (val, i) => Number.isInteger(val));
+stream = ToArray(stream);
+
+// is equivalent to this
+const stream = From(1, 2, 3, "4")
+   .pipe(Slice, 0, 10)
+   .pipe(Assert, (val, i) => Number.isInteger(val))
+   .pipe(ToArray);
+```
 pipe is a utility method to wrap one stream in another.
 
 **Kind**: instance method of [<code>Stream</code>](#streamlike.Stream)  
